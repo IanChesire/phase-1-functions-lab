@@ -1,26 +1,30 @@
-// Code your solution in this file!
-function distanceFromHqInBlocks(street){
-    const hqLocation = 42;
-    return Math.abs(street - hqLocation);
-};
-    
-let distanceFromHqInFeet = (street) => distanceFromHqInBlocks(street) * 264;
+//Code your solution in this file!
+const hq = 42;
+function distanceFromHqInBlocks(pickup){
+    return Math.abs(pickup - hq);
+}
+distanceFromHqInBlocks(42,50);
+function distanceFromHqInFeet(zoo){
+    return distanceFromHqInBlocks(zoo)* 264;
+}
+function distanceTravelledInFeet(alight, board){
+    return Math.abs(alight-board) * 264;
+}
+distanceTravelledInFeet(60,50);
 
-const distanceTravelledInFeet = (end, start) => Math.abs(end - start) * 264;
-
-const maxDistance = 2500;
-const calculatesFarePrice = (start, end ) => {
-    let dist = distanceTravelledInFeet(start, end);
-    if(dist < 400){
+function calculatesFarePrice(alight, board){
+    const maxDistance = 2500;
+    let distance = distanceTravelledInFeet(alight, board);
+    if(distance < 400){
         return 0;
     }
-    else if(dist >= 400 && dist < 2000){
-        return(dist - 400) * 2/100;
+    else if(distance >= 400 && distance < 2000){
+        return (distance-400)* 2/100;
     }
-    else if(dist > 2000 && dist < 2500){
+    else if(distance>2000 && distance < 2500){
         return 25;
     }
-    else {
-       return 'cannot travel that far';
+    else{
+        return 'cannot travel that far'
     }
 }
